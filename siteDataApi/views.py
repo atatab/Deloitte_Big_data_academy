@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from siteDataApi.serializers import ServiceSerializer, TeamMemberSerializer, BlogPostSerializer
 from siteDataApi.models import Service, TeamMember, BlogPost
 
 #Service CRUD
 class ListServiceAPIView(ListAPIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
 
@@ -27,7 +27,7 @@ class UpdateServiceAPIView(UpdateAPIView):
 
 #TeamMember CRUD
 class ListTeamMemberAPIView(ListAPIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = TeamMember.objects.all()
     serializer_class = TeamMemberSerializer
 
@@ -48,7 +48,7 @@ class UpdateTeamMemberAPIView(UpdateAPIView):
 
 #BlogPost CRUD
 class ListBlogPostAPIView(ListAPIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
 
