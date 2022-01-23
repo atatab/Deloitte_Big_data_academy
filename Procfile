@@ -1,1 +1,1 @@
-web: gunicorn backend_chronos_agency/backend_chronos_agency/wsgi.py
+web: gunicorn backend_chronos_agency.wsgi
