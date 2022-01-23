@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 
 class Service(models.Model):
     name = models.CharField(max_length = 100)
@@ -17,6 +18,14 @@ class TeamMember(models.Model):
     
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name}"
+
+    @property
+    @admin.display(
+        ordering='last_name',
+        description='Full name of the person',
+    )
+    def full_name(self):
+        return self.first_name + ' ' + self.last_name
 
 class BlogPost(models.Model):
     headline = models.CharField(max_length = 100)
