@@ -27,43 +27,38 @@ class UpdateServiceAPIView(UpdateAPIView):
 
 #TeamMember CRUD
 class ListTeamMemberAPIView(ListAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = TeamMember.objects.all()
     serializer_class = TeamMemberSerializer
 
 class CreateTeamMemberAPIView(CreateAPIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = TeamMember.objects.all()
     serializer_class = TeamMemberSerializer
 
 class DestroyTeamMemberAPIView(DestroyAPIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = TeamMember.objects.all()
     serializer_class = TeamMemberSerializer
 
 class UpdateTeamMemberAPIView(UpdateAPIView):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = TeamMember.objects.all()
     serializer_class = TeamMemberSerializer
 
 #BlogPost CRUD
 class ListBlogPostAPIView(ListAPIView):
-    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
 
 class CreateBlogPostAPIView(CreateAPIView):
-    permission_classes = (IsAuthenticated,)
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
 
 class DestroyBlogPostAPIView(DestroyAPIView):
-    permission_classes = (IsAuthenticated,)
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
 
 class UpdateBlogPostAPIView(UpdateAPIView):
-    permission_classes = (IsAuthenticated,)
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
 
